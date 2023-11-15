@@ -1,3 +1,6 @@
+attribute hal_lineage_livedisplay_server;
+attribute hal_lineage_livedisplay;
+
 type hal_lineage_livedisplay_qti, domain;
 hal_server_domain(hal_lineage_livedisplay_qti, hal_lineage_livedisplay)
 
