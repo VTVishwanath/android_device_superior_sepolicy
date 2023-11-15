@@ -2,10 +2,20 @@
 # rw_dir_file(domain, type)
 # Allow the specified domain to read directories and read/write files
 # and symbolic links of the specified type.
+#define(`rw_dir_file', `
+#allow $1 $2:dir r_dir_perms;
+#allow $1 $2:{ file lnk_file } rw_file_perms;
+#')
+
+# rw_dir_file(sourcedomain, targetpath)
+# Allows sourcedomain to read and write files and directories
+# in targetpath.
+#
 define(`rw_dir_file', `
-allow $1 $2:dir r_dir_perms;
-allow $1 $2:{ file lnk_file } rw_file_perms;
+    allow $1 $2:dir { getattr search open read write add_name remove_name };
+    allow $1 $2:file { getattr open read write create unlink rename };
 ')
+
 
 #####################################
 # create_dir_file(domain, type)
