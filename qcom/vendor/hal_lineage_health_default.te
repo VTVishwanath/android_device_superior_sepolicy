@@ -1,5 +1,7 @@
 # rw_dir_file(hal_lineage_health_default, sysfs_battery_supply)
-rw_dir_file(hal_lineage_health_default, /sys/class/power_supply/battery)
+allow hal_lineage_health_default sysfs_battery_supply:dir rw_dir_perms;
+allow hal_lineage_health_default sysfs_battery_supply:file rw_file_perms;
 
 # rw_dir_file(hal_lineage_health_default, sysfs_usb_supply)
-rw_dir_file(hal_lineage_health_default, /sys/class/power_supply/usb)
+allow hal_lineage_health_default sysfs_usb_supply:dir rw_dir_perms;
+allow hal_lineage_health_default sysfs_usb_supply:file rw_file_perms;
